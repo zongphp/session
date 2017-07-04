@@ -29,7 +29,7 @@ trait Base {
 	 */
 	final private function getSessionId() {
 		$id = Cookie::get( $this->session_name );
-		if ( ! $id || substr( $id, 0, 5 ) != 'zongphp' ) {
+		if ( ! $id || substr( $id, 0, 7 ) != 'zongphp' ) {
 			$id = 'zongphp' . md5( microtime( true ) ) . mt_rand( 1, 99999 );
 		}
 		Cookie::set( $this->session_name, $id, $this->expire, '/', Config::get( 'session.domain' ) );
